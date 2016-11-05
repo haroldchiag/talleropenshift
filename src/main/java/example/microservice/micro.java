@@ -20,7 +20,7 @@ public class micro {
 	public int sumar(@WebParam(name="valor1") int a,@WebParam(name="valor2") int b) {
 	    System.out.println("sumar: " + (a+b));
 	    return (a+b);
-	}
+	} 
 	
 	@WebMethod()
     public List<placas> getPlacas() {
