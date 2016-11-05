@@ -3,22 +3,14 @@ package example.microservice;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.ws.rs.Consumes;
-import javax.ws.rs.DELETE;
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.PUT;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
-import javax.ws.rs.QueryParam;
+import javax.jws.WebMethod;
+import javax.jws.WebParam;
+import javax.jws.WebService;
 
-@Path("/verificador")
-@Consumes({ "application/json" })
-@Produces({ "application/json" })
+@WebService(name="verificadorPlacas")
 public class verificadorPlacas {
-	@GET
-    @Path("/placas")
+	
+	@WebMethod()
     public List<placas> getPlacas() {
 	 List<placas> b = new ArrayList<placas>();
 	 placas bo = new placas();
@@ -39,9 +31,8 @@ public class verificadorPlacas {
 	 return b;
     }
  
-    @GET
-    @Path("/placa/{numero}")
-    public boolean getPlacaVerificar(@PathParam("numero") String id) {
+    @WebMethod()
+    public boolean getPlacaVerificar(@WebParam(name="numero") String id) {
 		if(id.equalsIgnoreCase("efg456")) {
 			return true;
 		}else
