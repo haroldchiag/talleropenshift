@@ -29,7 +29,7 @@ public class verificadorPlacas {
 	 b.add(bo);
 	 
 	 return b;
-    }
+    } 
  
     @WebMethod()
     public boolean getPlacaVerificar(@WebParam(name="numero") String id) {
